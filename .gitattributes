@@ -1,0 +1,12 @@
+# Finales de línea: el repositorio guarda siempre LF. Así los diffs y los
+# conflictos son idénticos en Windows, Linux y macOS.
+* text=auto eol=lf
+
+# Ficheros binarios
+*.png binary
+*.xlsx binary
+
+# Notebooks: nbstripout y nbdime se configuran en cada clon con
+#   uv run python scripts/lab.py notebooks activar-nbstripout
+#   uv run python scripts/lab.py notebooks activar-nbdime
+# y sus atributos se guardan en .git/info/attributes, no en este fichero.

@@ -1,0 +1,28 @@
+# Entorno y cachés de Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Resultados generados por el proyecto (informes, gráficos, exportaciones)
+salida/
+
+# Ficheros temporales de merges y herramientas
+*.orig
+*.rej
+*_BACKUP_*
+*_BASE_*
+*_LOCAL_*
+*_REMOTE_*
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
