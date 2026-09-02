@@ -1,0 +1,42 @@
+user_id,username,country,signup_date,followers,verified
+1,ane_stats,ES,2024-08-20,178,True
+2,mikel_py,MX,2025-12-08,251,True
+3,  lucia_code ,AR,2025-08-18,340,False
+4,iker_ml,CO,2026-07-23,61,False
+5,sara_ai,fr,2026-05-06,20,False
+6,jon_py,ES,2026-08-03,205,False
+7,nerea_bi,ES,2024-04-12,254,False
+8,unai_lab,MX,2026-07-20,44,False
+9,maite_code,AR,2026-02-01,517,True
+10,asier_bi,CL,2025-11-01,6,False
+11,irati_dev, PT ,2024-02-27,157,False
+12,gorka_py,ES,2024-09-20,1932,False
+13,leire_code,ES,2025-06-13,319,False
+14,aitor_viz,AR,2026-07-22,255,False
+15,amaia_dev,CO,2024-12-30,66,False
+16,julen_dev,PE,2025-09-23,140,False
+17,ainhoa_stats,ES,2024-04-08,68,False
+18,ander_lab,es,2025-05-06,395,False
+19,garazi_viz,MX,2026-03-29,985,False
+20,eneko_stats,AR,2025-07-03,415,False
+21,paula_py,,2026-07-06,449,False
+22,diego_stats,PT,2024-11-05,37,False
+23,carmen_ai,ES,2025-02-26,44,False
+24,pablo_viz,ES,2026-01-05,391,False
+25,elena_stats,MX,2025-08-06,202,True
+26,  javier_ml ,CO,2024-04-25,49,False
+27,marta_lab,pe,2024-07-01,33,True
+28,sergio_viz,ES,2026-02-27,727,False
+29,laura_stats,ES,2024-01-09,196,False
+30,david_ml,MX,2026-04-27,124,False
+31,sofia_bi,AR,2024-08-27,119,False
+32,mateo_stats,CL,2025-01-06,105,False
+33,valeria_data, FR ,2026-07-05,1678,False
+34,santiago_code,ES,2026-05-08,543,False
+35,camila_py,ES,2024-04-20,112,False
+36,nicolas_ml,MX,2026-02-18,157,False
+37,chloe_py,CO,2025-07-15,171,False
+38,lucas_bi,PE,2024-01-14,104,False
+39,ines_ml,ES,2024-05-02,316,True
+40,tiago_ai,ES,2026-06-03,0,False
+7,nerea_bi,ES,2024-04-12,254,False
