@@ -31,3 +31,7 @@ def test_load_csv_fichero_inexistente(tmp_path):
     with pytest.raises(FileNotFoundError, match="No se encuentra"):
         load_csv(tmp_path / "no_existe.csv")
 
+
+def test_load_dataset_no_depende_del_directorio_de_trabajo(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    assert len(load_dataset().users) == 40
