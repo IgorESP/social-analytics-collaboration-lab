@@ -17,8 +17,13 @@ social-analytics = "social_analytics.cli:main"
 dev = [
     "ipykernel>=6.29",
     "nbclient>=0.10",
+    "nbdime>=4.0",
     "nbformat>=5.10",
+    "nbstripout>=0.8",
     "pytest>=8.0",
+]
+lab = [
+    "jupyterlab>=4.2",
 ]
 
 [build-system]
