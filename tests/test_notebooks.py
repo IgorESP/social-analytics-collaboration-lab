@@ -12,6 +12,7 @@ from nbclient import NotebookClient
 
 ROOT = Path(__file__).resolve().parents[1]
 NOTEBOOKS = sorted((ROOT / "notebooks").glob("*.ipynb"))
+GUIA = ROOT / "CUADERNO_ALUMNADO_GIT_COLABORATIVO.ipynb"
 CONFLICT_MARKERS = ("<<<<<<<", ">>>>>>>")
 
 
@@ -21,7 +22,7 @@ def test_notebook_sin_marcas_de_conflicto(path):
     assert not any(marker in text for marker in CONFLICT_MARKERS), "Hay marcas de conflicto sin resolver"
 
 
-@pytest.mark.parametrize("path", NOTEBOOKS, ids=lambda p: p.name)
+@pytest.mark.parametrize("path", [*NOTEBOOKS, GUIA], ids=lambda p: p.name)
 def test_notebook_es_json_valido(path):
     nb = nbformat.read(path, as_version=4)
     nbformat.validate(nb)
