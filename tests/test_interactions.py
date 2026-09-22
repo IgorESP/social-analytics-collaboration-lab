@@ -32,3 +32,9 @@ def test_engagement_rate_autor_sin_seguidores(mini_dataset):
     users = mini_dataset.users.assign(followers=[100, 0, 10])
     rate = engagement_rate(mini_dataset.posts, mini_dataset.interactions, users)
     assert rate[2] == 0
+
+
+def test_engagement_rate_datos_reales_sin_infinitos(dataset):
+    rate = engagement_rate(dataset.posts, dataset.interactions, dataset.users)
+    assert rate.notna().all()
+    assert rate.max() < float("inf")
