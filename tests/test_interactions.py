@@ -25,3 +25,10 @@ def test_most_active_actors(mini_dataset):
     top = most_active_actors(mini_dataset.interactions, mini_dataset.users, n=1)
     assert top["user_id"].tolist() == [2]
     assert top["interactions"].tolist() == [2]
+
+
+def test_engagement_rate_autor_sin_seguidores(mini_dataset):
+    """Un autor con 0 seguidores no debe tener engagement infinito."""
+    users = mini_dataset.users.assign(followers=[100, 0, 10])
+    rate = engagement_rate(mini_dataset.posts, mini_dataset.interactions, users)
+    assert rate[2] == 0

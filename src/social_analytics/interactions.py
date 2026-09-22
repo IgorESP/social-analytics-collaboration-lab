@@ -16,13 +16,14 @@ def interactions_per_post(interactions: pd.DataFrame) -> pd.Series:
 def engagement_rate(posts: pd.DataFrame, interactions: pd.DataFrame, users: pd.DataFrame) -> pd.Series:
     """Tasa de engagement de cada autor.
 
-    engagement = interacciones recibidas / seguidores
+    engagement = interacciones recibidas / seguidores (0 si el autor no tiene seguidores)
     """
-    received = interactions.merge(posts[["post_id", "author_id"]], on="post_id")
-    totals = received.groupby("author_id").size()
     followers = users.set_index("user_id")["followers"]
-    rate = totals / followers
-    return rate.fillna(0).sort_values(ascending=False).rename("engagement_rate")
+    received = interactions.merge(posts[["post_id", "author_id"]], on="post_id")
+    totals = received.groupby("author_id").size().reindex(followers.index, fill_value=0)
+    # Un autor sin seguidores tendría engagement infinito: se considera 0.
+    rate = (totals / followers.where(followers > 0)).fillna(0).round(4)
+    return rate.sort_values(ascending=False).rename("engagement_rate")
 
 
 def most_active_actors(interactions: pd.DataFrame, users: pd.DataFrame, n: int = 5) -> pd.DataFrame:
