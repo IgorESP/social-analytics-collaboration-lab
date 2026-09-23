@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-from social_analytics.helpers import extract_hashtags
+from social_analytics.helpers import extract_hashtags, extract_mentions
 
 WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
@@ -32,3 +32,10 @@ def top_posts(posts: pd.DataFrame, interactions: pd.DataFrame, n: int = 10) -> p
     ranked["interactions"] = ranked["interactions"].astype(int)
     ranked = ranked.sort_values(["interactions", "created_at"], ascending=[False, True])
     return ranked.head(n).reset_index()[["post_id", "author_id", "text", "interactions"]]
+
+
+def top_mentions(posts: pd.DataFrame, limit: int = 10) -> pd.Series:
+    """Usuarios más mencionados en las publicaciones."""
+    mentions = posts["text"].map(extract_mentions).explode().dropna()
+    counts = mentions.value_counts().sort_index().sort_values(ascending=False, kind="stable")
+    return counts.head(limit).rename("mentions")
