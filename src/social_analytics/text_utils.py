@@ -1,4 +1,4 @@
-"""Utilidades de texto para las publicaciones de la red social."""
+"""Utilidades de texto (normalización y hashtags) para las publicaciones."""
 
 import re
 

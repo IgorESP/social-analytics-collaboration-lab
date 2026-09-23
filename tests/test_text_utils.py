@@ -1,4 +1,4 @@
-from social_analytics.helpers import extract_hashtags, normalize_text
+from social_analytics.text_utils import extract_hashtags, normalize_text
 
 
 def test_normalize_text_elimina_espacios_repetidos():

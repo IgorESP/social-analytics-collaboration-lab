@@ -71,7 +71,7 @@ Leed los documentos **en este orden**, en el momento indicado. El documento de t
 ├── src/social_analytics/
 │   ├── data_loader.py        # carga y limpieza
 │   ├── schema.py             # contrato de datos (columnas obligatorias)
-│   ├── helpers.py            # utilidades de texto (hashtags)
+│   ├── text_utils.py         # utilidades de texto (hashtags)
 │   ├── users.py              # análisis de usuarios
 │   ├── posts.py              # análisis de publicaciones
 │   ├── interactions.py       # interacciones y engagement

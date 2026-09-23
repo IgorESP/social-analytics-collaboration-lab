@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from social_analytics.helpers import normalize_text
+from social_analytics.text_utils import normalize_text
 from social_analytics.schema import validate_columns
 
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"

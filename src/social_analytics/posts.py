@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-from social_analytics.helpers import extract_hashtags
+from social_analytics.text_utils import extract_hashtags
 
 WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
