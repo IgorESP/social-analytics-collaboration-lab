@@ -10,6 +10,11 @@ def normalize_text(text: str) -> str:
     return " ".join(str(text).split())
 
 
-def extract_hashtags(text: str) -> list[str]:
-    """Devuelve los hashtags de un texto en minúsculas y sin el símbolo #."""
-    return [tag.lower() for tag in HASHTAG_PATTERN.findall(str(text))]
+def extract_hashtags(text: str | None) -> list[str]:
+    """Devuelve los hashtags de un texto en minúsculas y sin el símbolo #.
+
+    Los valores nulos o que no son texto (por ejemplo, NaN) devuelven una lista vacía.
+    """
+    if not isinstance(text, str):
+        return []
+    return [tag.lower() for tag in HASHTAG_PATTERN.findall(text)]

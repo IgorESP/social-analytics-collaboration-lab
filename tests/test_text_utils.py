@@ -11,3 +11,8 @@ def test_extract_hashtags_en_minusculas():
 
 def test_extract_hashtags_texto_sin_hashtags():
     assert extract_hashtags("sin etiquetas") == []
+
+
+def test_extract_hashtags_valores_nulos():
+    assert extract_hashtags(None) == []
+    assert extract_hashtags(float("nan")) == []
