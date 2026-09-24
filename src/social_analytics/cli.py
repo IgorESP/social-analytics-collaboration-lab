@@ -1,8 +1,10 @@
 """Interfaz de línea de comandos: ``uv run social-analytics --help``."""
 
 import argparse
+import json
 from pathlib import Path
 
+from social_analytics.dashboard import build_dashboard
 from social_analytics.data_loader import load_dataset
 from social_analytics.reports import save_report
 from social_analytics.visualization import plot_interactions_by_kind, plot_users_by_country
@@ -16,6 +18,7 @@ def build_parser() -> argparse.ArgumentParser:
     report.add_argument("--salida", type=Path, default=Path("salida/informe.md"))
     plots = commands.add_parser("graficos", help="genera los gráficos en PNG")
     plots.add_argument("--carpeta", type=Path, default=Path("salida"))
+    commands.add_parser("dashboard", help="muestra los indicadores del panel en JSON")
     return parser
 
 
@@ -32,6 +35,8 @@ def main(argv: list[str] | None = None) -> int:
             plot_interactions_by_kind(ds.interactions, args.carpeta / "interacciones_por_tipo.png"),
         ):
             print(f"Gráfico guardado en {path}")
+    elif args.command == "dashboard":
+        print(json.dumps(build_dashboard(ds), ensure_ascii=False, indent=2))
     return 0
 
 
