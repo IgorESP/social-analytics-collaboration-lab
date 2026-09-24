@@ -25,10 +25,21 @@ def top_hashtags(posts: pd.DataFrame, limit: int = 10) -> pd.Series:
     return counts.head(limit).rename("posts")
 
 
-def top_posts(posts: pd.DataFrame, interactions: pd.DataFrame, n: int = 10) -> pd.DataFrame:
-    """Las ``n`` publicaciones con más interacciones."""
+def top_posts(
+    posts: pd.DataFrame,
+    interactions: pd.DataFrame,
+    *,
+    limit: int = 10,
+    min_interactions: int = 0,
+) -> pd.DataFrame:
+    """Las ``limit`` publicaciones con más interacciones.
+
+    Solo se tienen en cuenta las publicaciones con al menos ``min_interactions``.
+    Los argumentos con nombre siguen la misma convención que ``top_hashtags``.
+    """
     counts = interactions.groupby("post_id").size().rename("interactions")
     ranked = posts.set_index("post_id").join(counts).fillna({"interactions": 0})
     ranked["interactions"] = ranked["interactions"].astype(int)
+    ranked = ranked[ranked["interactions"] >= min_interactions]
     ranked = ranked.sort_values(["interactions", "created_at"], ascending=[False, True])
-    return ranked.head(n).reset_index()[["post_id", "author_id", "text", "interactions"]]
+    return ranked.head(limit).reset_index()[["post_id", "author_id", "text", "interactions"]]

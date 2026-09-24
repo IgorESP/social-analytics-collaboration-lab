@@ -22,6 +22,11 @@ def test_top_hashtags_respeta_el_limite(dataset):
 
 
 def test_top_posts(mini_dataset):
-    top = top_posts(mini_dataset.posts, mini_dataset.interactions, n=2)
+    top = top_posts(mini_dataset.posts, mini_dataset.interactions, limit=2)
     assert top["post_id"].tolist() == [10, 12]
     assert top["interactions"].tolist() == [2, 2]
+
+
+def test_top_posts_min_interactions(mini_dataset):
+    top = top_posts(mini_dataset.posts, mini_dataset.interactions, min_interactions=2)
+    assert top["post_id"].tolist() == [10, 12]

@@ -33,7 +33,7 @@ def top_users_section(ds: Dataset) -> str:
 
 def top_posts_section(ds: Dataset) -> str:
     """Publicaciones con más interacciones."""
-    top = top_posts(ds.posts, ds.interactions, n=5)
+    top = top_posts(ds.posts, ds.interactions, limit=5)
     lines = [f"{i}. [{row.interactions}] {row.text}" for i, row in enumerate(top.itertuples(), start=1)]
     return "\n".join(lines)
 
