@@ -25,10 +25,9 @@ def summary_section(ds: Dataset) -> str:
 
 
 def top_users_section(ds: Dataset) -> str:
-    """Usuarios que más interactúan."""
+    """Usuarios que más interactúan, en forma de tabla Markdown."""
     top = most_active_actors(ds.interactions, ds.users, n=5)
-    lines = [f"{i}. @{row.username} ({row.country}): {row.interactions} interacciones" for i, row in enumerate(top.itertuples(), start=1)]
-    return "\n".join(lines)
+    return top[["username", "country", "interactions"]].to_markdown(index=False)
 
 
 def top_posts_section(ds: Dataset) -> str:

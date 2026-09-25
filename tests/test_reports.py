@@ -17,3 +17,7 @@ def test_save_report_crea_la_carpeta(dataset, tmp_path):
     path = save_report(dataset, tmp_path / "salida" / "informe.md")
     assert path.exists()
     assert path.read_text(encoding="utf-8").startswith("# Informe")
+
+
+def test_usuarios_mas_activos_en_tabla(dataset):
+    assert "| username" in generate_report(dataset)

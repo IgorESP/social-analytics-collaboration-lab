@@ -1,6 +1,6 @@
 [project]
 name = "social-analytics"
-version = "1.0.0"
+version = "1.0.1"
 description = "Análisis de una red social ficticia con Pandas: laboratorio de trabajo colaborativo con Git y GitHub"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -8,6 +8,7 @@ authors = [{ name = "Equipo Social Analytics (IABD)" }]
 dependencies = [
     "matplotlib>=3.8",
     "pandas>=2.2",
+    "tabulate>=0.9",
 ]
 
 [project.scripts]
